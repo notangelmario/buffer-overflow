@@ -1,0 +1,246 @@
+[gd_scene load_steps=32 format=3 uid="uid://to8o0wijwt6i"]
+
+[ext_resource type="PackedScene" uid="uid://qfyc2ga5kc3l" path="res://scenes/player.tscn" id="1_hywra"]
+[ext_resource type="Environment" uid="uid://cs81ct4hm78sc" path="res://scenes/main_env.tres" id="1_o1ea3"]
+[ext_resource type="PackedScene" uid="uid://cwibv61jp2en6" path="res://models/roads/road_straight.glb" id="2_kk3dp"]
+[ext_resource type="PackedScene" uid="uid://1d0ui72v3354" path="res://models/buildings/skyscraperA.glb" id="3_055hr"]
+[ext_resource type="PackedScene" uid="uid://bv2spnvsyj4e5" path="res://models/cars/sedan.glb" id="3_cvvni"]
+[ext_resource type="PackedScene" uid="uid://brwd405vnr1h6" path="res://models/roads/road_intersection.glb" id="4_kxa86"]
+[ext_resource type="PackedScene" uid="uid://7mm05jt4n5gl" path="res://models/buildings/skyscraperB.glb" id="4_tc70o"]
+[ext_resource type="PackedScene" uid="uid://ccjqwlb1hro3o" path="res://models/buildings/large_buildingF.glb" id="5_okask"]
+[ext_resource type="PackedScene" uid="uid://bl8qcgonma33q" path="res://models/buildings/large_buildingA.glb" id="5_ooeks"]
+[ext_resource type="PackedScene" uid="uid://dp1wwjtvpwg6p" path="res://models/roads/tile_low.glb" id="6_f85vm"]
+[ext_resource type="PackedScene" uid="uid://dnj0rrevh2ech" path="res://models/roads/construction_light.glb" id="6_npl3r"]
+[ext_resource type="PackedScene" uid="uid://djuvomrk880ng" path="res://models/roads/construction_barrier.glb" id="7_gnjcv"]
+[ext_resource type="PackedScene" uid="uid://ci2kfuily2utn" path="res://models/roads/construction_pylon.glb" id="8_ewhn5"]
+[ext_resource type="PackedScene" uid="uid://2htgwasc5iht" path="res://models/buildings/small_buildingF.glb" id="11_nnve1"]
+[ext_resource type="PackedScene" uid="uid://c25c2sf0cm373" path="res://models/roads/road_bend.glb" id="12_s7yi8"]
+[ext_resource type="PackedScene" uid="uid://n5fvwmj212hg" path="res://models/buildings/low_wideA.glb" id="13_b7vpq"]
+[ext_resource type="PackedScene" uid="uid://b8qgin6qg7d6t" path="res://models/buildings/small_buildingA.glb" id="13_sa2o5"]
+[ext_resource type="PackedScene" uid="uid://bixj7e7vtvjp6" path="res://models/buildings/skyscraperE.glb" id="14_q4irq"]
+[ext_resource type="PackedScene" uid="uid://cabt1r3r8j2e6" path="res://models/buildings/large_buildingG.glb" id="15_y7gcs"]
+[ext_resource type="PackedScene" uid="uid://d174ilw6qijnm" path="res://models/buildings/skyscraperC.glb" id="16_4bnlr"]
+[ext_resource type="PackedScene" uid="uid://dfrnsgp5kaxdd" path="res://models/buildings/detail_umbrella.glb" id="16_l0h26"]
+[ext_resource type="PackedScene" uid="uid://btbpn8q61f735" path="res://models/buildings/large_buildingE.glb" id="17_2d66a"]
+[ext_resource type="PackedScene" uid="uid://wscq4ybsp7l0" path="res://models/buildings/skyscraperD.glb" id="18_xkmyg"]
+[ext_resource type="PackedScene" uid="uid://dptiddw2nuby2" path="res://models/cars/firetruck.glb" id="20_fyuiw"]
+[ext_resource type="PackedScene" uid="uid://rg7lw56sl43" path="res://models/cars/police.glb" id="21_fa4rg"]
+[ext_resource type="PackedScene" uid="uid://bqgtlewskk63b" path="res://models/buildings/sign_billboard.glb" id="25_653tq"]
+[ext_resource type="PackedScene" uid="uid://inwfw1mc7sq3" path="res://models/buildings/wall_solid.glb" id="26_ohndp"]
+[ext_resource type="PackedScene" uid="uid://n4o7rkdj7ste" path="res://models/furniture/doorway.glb" id="27_tkc7o"]
+[ext_resource type="PackedScene" uid="uid://cr0w44hji7pfh" path="res://models/furniture/lampWall.glb" id="28_j5yr0"]
+[ext_resource type="PackedScene" uid="uid://mcpebcue0iai" path="res://models/furniture/televisionVintage.glb" id="29_ljo8q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d72uk"]
+size = Vector3(1, 5, 11)
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.110438, -0.344056, 0.932432, 0.00466312, 0.937981, 0.346656, -0.993872, 0.042632, -0.101984, 0, 10.5045, 0)
+light_color = Color(1, 0.823529, 0.65098, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_o1ea3")
+
+[node name="Player" parent="." instance=ExtResource("1_hywra")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -4.97476, -1.19209e-07, 4.87841)
+
+[node name="Street" type="Node" parent="."]
+
+[node name="sedan" parent="Street" instance=ExtResource("3_cvvni")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.96077, 0.0800004, 6.30598)
+
+[node name="Road" type="Node" parent="Street"]
+
+[node name="tile_low" parent="Street/Road" instance=ExtResource("6_f85vm")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -10)
+
+[node name="tile_low2" parent="Street/Road" instance=ExtResource("6_f85vm")]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
+
+[node name="road_straight" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+
+[node name="road_straight2" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
+
+[node name="road_straight3" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -2)
+
+[node name="road_straight7" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 0, -4)
+
+[node name="road_straight9" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 0, -12)
+
+[node name="road_straight10" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 0, -20)
+
+[node name="road_straight6" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -2)
+
+[node name="road_straight8" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 0, -4)
+
+[node name="road_straight4" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -2)
+
+[node name="road_straight5" parent="Street/Road" instance=ExtResource("2_kk3dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -2)
+
+[node name="road_intersection" parent="Street/Road" instance=ExtResource("4_kxa86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -2)
+
+[node name="road_bend" parent="Street/Road" instance=ExtResource("12_s7yi8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 0, 4)
+
+[node name="tile_low3" parent="Street/Road" instance=ExtResource("6_f85vm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -10)
+
+[node name="tile_low4" parent="Street/Road" instance=ExtResource("6_f85vm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -10)
+
+[node name="tile_low5" parent="Street/Road" instance=ExtResource("6_f85vm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -18)
+
+[node name="tile_low7" parent="Street/Road" instance=ExtResource("6_f85vm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 14)
+
+[node name="tile_low6" parent="Street/Road" instance=ExtResource("6_f85vm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -26)
+
+[node name="Buildings" type="Node" parent="Street"]
+
+[node name="large_buildingA" parent="Street/Buildings" instance=ExtResource("5_ooeks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.1, 14)
+
+[node name="skyscraperA" parent="Street/Buildings" instance=ExtResource("3_055hr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 14.4)
+
+[node name="skyscraperB" parent="Street/Buildings" instance=ExtResource("4_tc70o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -5)
+
+[node name="large_buildingF" parent="Street/Buildings" instance=ExtResource("5_okask")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 13)
+
+[node name="small_buildingF" parent="Street/Buildings" instance=ExtResource("11_nnve1")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 40, 0, 6)
+
+[node name="small_buildingA" parent="Street/Buildings" instance=ExtResource("13_sa2o5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="low_wideA" parent="Street/Buildings" instance=ExtResource("13_b7vpq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29, 0, -4)
+
+[node name="skyscraperE" parent="Street/Buildings" instance=ExtResource("14_q4irq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 45, 0, -3)
+
+[node name="large_buildingG" parent="Street/Buildings" instance=ExtResource("15_y7gcs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23, 0, -22)
+
+[node name="skyscraperC" parent="Street/Buildings" instance=ExtResource("16_4bnlr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 5, 13)
+
+[node name="large_buildingE" parent="Street/Buildings" instance=ExtResource("17_2d66a")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 69, 0, 0)
+
+[node name="skyscraperD" parent="Street/Buildings" instance=ExtResource("18_xkmyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, -31)
+
+[node name="skyscraperD2" parent="Street/Buildings" instance=ExtResource("18_xkmyg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 0, -34)
+
+[node name="Detail" type="Node" parent="Street"]
+
+[node name="detail_umbrella" parent="Street/Detail" instance=ExtResource("16_l0h26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 8)
+
+[node name="detail_umbrella2" parent="Street/Detail" instance=ExtResource("16_l0h26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 8)
+
+[node name="construction_light" parent="Street/Detail" instance=ExtResource("6_npl3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="construction_barrier" parent="Street/Detail" instance=ExtResource("7_gnjcv")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 6, 0, -3)
+
+[node name="construction_barrier2" parent="Street/Detail" instance=ExtResource("7_gnjcv")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 9.93185, 0, -0.482362)
+
+[node name="construction_pylon" parent="Street/Detail" instance=ExtResource("8_ewhn5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="construction_pylon2" parent="Street/Detail" instance=ExtResource("8_ewhn5")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 6.5, 0, -2)
+
+[node name="construction_pylon3" parent="Street/Detail" instance=ExtResource("8_ewhn5")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 3.5, 0, -4)
+
+[node name="firetruck" parent="Street/Detail" instance=ExtResource("20_fyuiw")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 21, 0, 6)
+
+[node name="police" parent="Street/Detail" instance=ExtResource("21_fa4rg")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 11, 0, -2)
+
+[node name="sign_billboard" parent="Street/Detail" instance=ExtResource("25_653tq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 59, 18, 6)
+
+[node name="Barrier" type="StaticBody3D" parent="Street"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street/Barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 4)
+shape = SubResource("BoxShape3D_d72uk")
+
+[node name="Apartment" type="Node" parent="."]
+
+[node name="wall_solid" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, 10)
+
+[node name="wall_solid2" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4, 0.1, 11.6)
+
+[node name="wall_solid3" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4, 0.1, 14.8)
+
+[node name="wall_solid4" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.1, 16.4)
+
+[node name="wall_solid5" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3.3, 10)
+
+[node name="wall_solid6" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4, 3.3, 11.6)
+
+[node name="wall_solid7" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4, 3.3, 14.8)
+
+[node name="wall_solid8" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3.3, 16.4)
+
+[node name="wall_solid9" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6.5, 10)
+
+[node name="wall_solid10" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4, 6.5, 11.6)
+
+[node name="wall_solid11" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.4, 6.5, 14.8)
+
+[node name="wall_solid12" parent="Apartment" instance=ExtResource("26_ohndp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 6.5, 16.4)
+
+[node name="doorway" parent="Apartment" instance=ExtResource("27_tkc7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.1, 16.4953)
+
+[node name="lampWall" parent="Apartment" instance=ExtResource("28_j5yr0")]
+transform = Transform3D(1, 8.74228e-08, 8.9407e-08, 8.74228e-08, -1, 7.8162e-15, 8.9407e-08, 0, -1, -1.2, 3.6, 16.4)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Apartment/lampWall"]
+transform = Transform3D(1, 0, 1.03028e-14, 7.10543e-15, 4.37114e-08, -1, 0, 1, 4.37114e-08, -9.53674e-07, 0.0999999, 0.162071)
+light_color = Color(0.854902, 0.729412, 0.596078, 1)
+shadow_enabled = true
+
+[node name="televisionVintage" parent="Apartment" instance=ExtResource("29_ljo8q")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -1.4, 0.162952, 15.4)
