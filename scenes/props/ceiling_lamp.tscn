@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ws7dfpnnfwgu"]
+
+[ext_resource type="PackedScene" uid="uid://b3kff5nccvha4" path="res://models/furniture/lampSquareCeiling.glb" id="1_rsf8s"]
+
+[node name="Ceiling Lamp" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="lampSquareCeiling" parent="." instance=ExtResource("1_rsf8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0763165, 0, 0.0577631)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0156549, 0.0431058, 0.000249729)
+shadow_enabled = true
+shadow_opacity = 0.95

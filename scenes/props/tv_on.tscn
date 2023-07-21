@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfdtnc5xm2376"]
+
+[ext_resource type="PackedScene" uid="uid://biqr67d7336q7" path="res://models/furniture/televisionModern.glb" id="1_duu1s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_288gt"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.25
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jj5j0"]
+material = SubResource("StandardMaterial3D_288gt")
+orientation = 2
+
+[node name="TV_On" type="Node3D"]
+
+[node name="televisionModern" parent="." instance=ExtResource("1_duu1s")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.01312, 0, 0, 0, 0.569799, 0, 0, 0, 1, 0, 0.785003, 0.066965)
+mesh = SubResource("PlaneMesh_jj5j0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.722342, 0.171701)
+light_energy = 0.25
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+spot_range = 7.5
+spot_angle = 75.0

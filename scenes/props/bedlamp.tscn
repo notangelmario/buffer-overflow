@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://iu87ijtmdjo5"]
+
+[ext_resource type="PackedScene" uid="uid://cwm3uwvv842u1" path="res://models/furniture/lampRoundTable.glb" id="1_pf4bg"]
+
+[node name="bedlamp" type="Node3D"]
+
+[node name="lampRoundTable" parent="." instance=ExtResource("1_pf4bg")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18092, 0.47692, -0.175943)
+light_color = Color(1, 0.980392, 0.890196, 1)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
