@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://3wch5ncqnipy"]
+[gd_scene load_steps=10 format=3 uid="uid://3wch5ncqnipy"]
 
 [ext_resource type="Script" path="res://scripts/scripted/door_knock.gd" id="1_opj3x"]
 [ext_resource type="Script" path="res://scripts/interactable_body.gd" id="2_dyx0j"]
 [ext_resource type="AudioStream" uid="uid://d2c4xyyr5oiw2" path="res://sounds/footstep_carpet_000.ogg" id="3_eerff"]
+[ext_resource type="AudioStream" uid="uid://dimupp28pj05d" path="res://sounds/impactBell_heavy_000.ogg" id="4_gir4o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuoxv"]
 resource_name = "wood"
@@ -84,13 +85,16 @@ root_node = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_y3161")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="KnockingStream" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655217, 2.12459, -0.388513)
 stream = ExtResource("3_eerff")
 volume_db = 20.0
-autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="StingerStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gir4o")
+volume_db = 15.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
